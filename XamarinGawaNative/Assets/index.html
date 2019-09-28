@@ -1,0 +1,44 @@
+﻿<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>XamarinGawaNative</title>
+    <meta name="viewport" content="width=320,user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <!--
+        普通のHTMLのようにCSSやJSを読み込める。
+        <link rel="stylesheet" type="text/css" media="screen" href="css/main.css?20190925-1" />
+        <script src='js/jquery-3.4.1.min.js'></script>
+        <script src='js/vue.min.js'></script>
+        <script src="js/main.js?20190923-3"></script>
+        <link rel="manifest" href="manifest.json">
+    -->
+</head>
+<style>
+    *:not(.selectale){
+        /* 選択できると一気にWebっぽくなる */
+        user-select:none;
+    }
+</style>
+<script>
+    function test1() {
+        var name = document.getElementById("test").value;
+        var w = CS.HelloWorld(name);
+        alert(w);
+    }
+    function test2() {
+        var name = document.getElementById("test").value;
+        CS.HelloWorldEvent(name);
+    }
+    window.addEventListener("helloworld", function (e) {
+        var w = e.detail;
+        alert(w);
+    })
+</script>
+<body onload="CS.Initialized()">
+    GawaNative Hello World
+    <input id="test" type="'text" value="test" />
+    <button onclick="test1()">Test1</button>
+    <button onclick="test2()">Test2</button>
+</body>
+</html>
